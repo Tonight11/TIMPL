@@ -10,6 +10,8 @@
 
   border-radius: 30px;
   background: #b8b6f4;
+
+  overflow: hidden;
 }
 
 input {
