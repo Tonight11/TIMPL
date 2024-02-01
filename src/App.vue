@@ -33,6 +33,34 @@
   const updateEnjoy = (key) => {
     hero.value.enjoy[key] = !hero.value.enjoy[key];
   };
+
+  function createWave(button) {
+    const btn = button.target;
+    let ripple = document.createElement("span");
+
+    // Add ripple class to span
+    ripple.classList.add("ripple");
+
+    // Add span to the button
+    btn.appendChild(ripple);
+
+    // Get position of X
+    let x = button.clientX - button.target.offsetLeft;
+
+    // Get position of Y
+    let y = button.clientY - button.target.offsetTop;
+
+    // Position the span element
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+
+    // Remove span after 0.3s
+    setTimeout(() => {
+      ripple.remove();
+    }, 1000);
+
+    // store.pay();
+  }
 </script>
 
 <template>
@@ -172,7 +200,7 @@
           <button
             :disabled="!isBtnActive"
             class="pay__btn btn btn-secondary"
-            @click="store.pay"
+            @click="createWave"
           >
             Pay by card
           </button>
@@ -195,6 +223,7 @@
 <style>
   .header {
     position: relative;
+    margin-bottom: 15px;
   }
   .header__shadow {
     position: absolute;
@@ -213,7 +242,9 @@
     z-index: 2;
     overflow: hidden;
     height: 397px;
-    clip-path: polygon(0 0, 100% 0%, 100% 94%, 0% 100%);
+
+    border-radius: 28px;
+    overflow: hidden;
   }
   .header__name {
     position: absolute;
@@ -328,27 +359,32 @@
   }
   .dotted:not(:last-child)::before {
     content: "";
+    width: 100%;
+    height: 100%;
     position: absolute;
     z-index: 20;
-    bottom: -2px;
-    left: 0;
+    top: calc(100% - 3px);
+    left: 40px;
     width: 100%;
 
-    border-bottom: 5px #8e6cea dotted;
+    background-image: url("@/assets/img/dotted.png");
+    background-repeat: no-repeat;
   }
   .dotted:not(:first-child)::after {
     content: "";
+    width: 100%;
+    height: 100%;
     position: absolute;
     z-index: 20;
     top: -2px;
-    left: 0;
+    left: 40px;
     width: 100%;
-    border-bottom: 5px #8e6cea dotted;
+    background-image: url("@/assets/img/dotted.png");
+    background-repeat: no-repeat;
   }
   .dotted:first-child {
     padding-top: 48px;
-    border-radius: 0 0 28px 28px;
-    clip-path: polygon(0 6%, 100% 0%, 100% 100%, 0% 100%);
+    border-radius: 28px;
   }
   .pay {
   }
