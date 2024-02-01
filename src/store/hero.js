@@ -10,6 +10,7 @@ export const useHeroStore = defineStore("hero", () => {
     text: "was your waiter",
     logo: logo,
     tip: "5€",
+    review: " High quality service and food was truly magnificent 😍🔥",
     tipAmount: ["2€", "5€", "10€"],
     rating: 0,
     fullTip: false,
