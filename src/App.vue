@@ -369,6 +369,7 @@
 
     background-image: url("@/assets/img/dotted.png");
     background-repeat: no-repeat;
+    pointer-events: none;
   }
   .dotted:not(:first-child)::after {
     content: "";
@@ -381,6 +382,7 @@
     width: 100%;
     background-image: url("@/assets/img/dotted.png");
     background-repeat: no-repeat;
+    pointer-events: none;
   }
   .dotted:first-child {
     padding-top: 48px;
