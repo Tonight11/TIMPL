@@ -44,15 +44,9 @@
     // Add span to the button
     btn.appendChild(ripple);
 
-    // Get position of X
-    let x = button.clientX - button.target.offsetLeft;
-
-    // Get position of Y
-    let y = button.clientY - button.target.offsetTop;
-
     // Position the span element
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
+    ripple.style.left = `0px`;
+    ripple.style.top = `0px`;
 
     // Remove span after 0.3s
     setTimeout(() => {
